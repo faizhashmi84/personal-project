@@ -10,6 +10,10 @@ public class BookService {
     @Autowired
     private BookRepository repository;
 
+    public BookService(BookRepository repository) {
+        this.repository = repository;
+    }
+
     public void addBook(Book b) {
         if (b.getTitle() != null && !b.getTitle().isEmpty()) {
             repository.save(b);
